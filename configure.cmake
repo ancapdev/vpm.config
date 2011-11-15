@@ -48,7 +48,8 @@ if(MSVC)
     # (boost headers) warning C6326: Potential comparison of a constant with another constant
     # warning C6334: sizeof operator applied to an expression with an operator might yield unexpected results
     # warning C6255: _alloca indicates failure by raising a stack overflow exception. Consider using _malloca instead
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd6326 /wd6334 /wd6255")
+    # warning C6011: Dereferncing NULL pointer
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd6326 /wd6334 /wd6255 /wd6011")
   endif()
 else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
