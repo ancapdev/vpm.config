@@ -43,7 +43,7 @@ if(MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4480 /wd4481 /wd4482 /wd4127 /wd4535 /wd4702")
 
   # Enable static analysis warnings
-  if (${CMAKE_SIZEOF_VOID_P} EQUAL 4)
+  if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /analyze")
     # (boost headers) warning C6326: Potential comparison of a constant with another constant
     # warning C6334: sizeof operator applied to an expression with an operator might yield unexpected results
