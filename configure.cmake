@@ -5,9 +5,12 @@
 # Compiler flags
 #
 if(MSVC)
-  add_definitions("-D_WIN32_WINNT=0x0501")
+  add_definitions("-D_WIN32_WINNT=0x0600")
   add_definitions("-DNOMINMAX")
-  add_definitions("-Dnoexcept=throw()")
+  if(${MSVC_VERSION} EQUAL 1700)
+    # Enable at least 10 parameters for variadic standard library types
+    add_definitions("-D_VARIADIC_MAX=10")
+  endif()
   add_definitions("-D_SCL_SECURE_NO_WARNINGS")
 
   # Enable parallel compilation
