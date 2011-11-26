@@ -59,5 +59,11 @@ else()
   if (${CMAKE_SIZEOF_VOID_P} EQUAL 8)
     # Enable cmpxchg16
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcx16")
+
+    if(DEFINED VPM_BITS)
+      if(${VPM_BITS} EQUAL 32)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
+      endif()
+    endif()
   endif()
 endif()
