@@ -60,6 +60,7 @@ else()
     # Enable cmpxchg16
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcx16")
 
+    # Enable 32 bit cross compile
     if(DEFINED VPM_BITS)
       if(${VPM_BITS} EQUAL 32)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
