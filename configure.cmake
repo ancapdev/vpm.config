@@ -41,9 +41,11 @@ if(MSVC)
   # warning C4481: nonstandard extension used: override specifier 'override'
   # warning C4482: nonstandard extension used: enum 'Crunch::CpuidFunction' used in qualified name
   # warning C4127: conditional expression is constant 
+  # warning C4251: dll interface needed for 'foo'
+  # warning C4275: non dll-interface 'foo' class used as base for dll-interface class 'bar'
   # (boost utf) warning C4535: calling _set_se_translator() requires /EHa
   # (boost utf) warning C4702: unreachable code
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4480 /wd4481 /wd4482 /wd4127 /wd4535 /wd4702")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4480 /wd4481 /wd4482 /wd4127 /wd4535 /wd4702 /wd4251 /wd4275")
 
   # Enable static analysis warnings
   if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
@@ -68,3 +70,10 @@ else()
     endif()
   endif()
 endif()
+
+# Add compile time flag to detect a shared library build
+if(${BUILD_SHARED_LIBS})
+  add_definitions("-DVPM_SHARED_LIB_BUILD")
+endif()
+
+
