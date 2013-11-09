@@ -57,7 +57,7 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd6326 /wd6334 /wd6255 /wd6011")
   endif()
 else()
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
   if (${CMAKE_SIZEOF_VOID_P} EQUAL 8)
     # Enable cmpxchg16
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcx16")
